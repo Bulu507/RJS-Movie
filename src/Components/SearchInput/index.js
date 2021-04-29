@@ -18,7 +18,6 @@ const SearchInput = () => {
         const data = await API.searchMovie(searchValue);
         setSearchData(data.results);
         setLoading(false);
-        console.log(data);
     }
 
     useEffect(() => {

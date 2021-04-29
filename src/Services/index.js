@@ -22,12 +22,14 @@ const getMovies = (params) => Get(`movie/${params}`);
 const searchMovie = (params) => Get('search/movie', params);
 const getMovie = (id) => Get(`movie/${id}`);
 const getImage = (path) => `https://image.tmdb.org/t/p/w300/${path}`;
+const getReview = (id) => Get(`movie/${id}/reviews`);
 
 const API = {
     getMovies,
     searchMovie,
     getMovie,
-    getImage
+    getImage,
+    getReview
 }
 
 export default API;

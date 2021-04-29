@@ -29,19 +29,25 @@ const Home = () =>{
             <div className='flex flex-row justify-start pt-5 px-10 items-end space-x-5'>
                 <h1 className='text-2xl'>Most Popular</h1>
                 <a href='/movie'>All</a>
-                <p onClick={() => getMovies('popular')} className='cursor-pointer'>Most Popular</p>
+                <p onClick={() => setParams('popular')} className='cursor-pointer'>Most Popular</p>
                 <a href='/movie'>Recomended</a>
             </div>
+            {isLoading && 
+                <div className='animate-pulse h-screen text-center pt-10 text-xl'>
+                    Loading...
+                </div>
+            }
             <div className='flex flex-wrap justify-center'>
-                {isLoading && 
-                    <div className='flex animate-pulse h-screen items-start pt-10 text-xl'>
-                        Loading...
-                    </div>
-                }
                 {
                     movies.map((movie) => {
                         return (
-                            <MovieList key={movie.id} img={API.getImage(movie.poster_path)} title={movie.title} rating={movie.vote_average} id={movie.id} />
+                            <MovieList 
+                                key={movie.id} 
+                                img={API.getImage(movie.poster_path)} 
+                                title={movie.title} 
+                                rating={movie.vote_average} 
+                                id={movie.id}
+                            />
                         )
                     })
                 }
